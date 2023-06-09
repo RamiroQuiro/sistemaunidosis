@@ -10,4 +10,6 @@ const fetchMssql=async(servicio)=>{
     return data
 }
 
+
+
 export default fetchMssql

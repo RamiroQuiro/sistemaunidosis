@@ -1,17 +1,45 @@
-"use client"
+"use client";
 import { useState } from "react";
 import fetchMssql from "@/base/basemssql";
 import SectionBackgroun from "../componentes/SectionBackgroun";
 
 export default function PaginaDashborad() {
-  const [data, setData] = useState(null)
-  const consultarMssql = (e) => {
+  const [data, setData] = useState(null);
+  const [pacientes, setPacientes] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const consultarMssql = (e, serv) => {
     e.preventDefault();
-    fetchMssql("UTI").then((data)=>{
-        setData(data)
-        console.log(data)
-    })
+    fetchMssql("uti")
+      .then((data) => {
+        const groupedByAge = data?.uti?.reduce((acc, obj) => {
+          const key = obj["nombrePaciente"];
+          if (!acc[key]) {
+            acc[key] = [];
+          }
+          acc[key].push(obj);
+          return acc;
+        }, {});
+        return groupedByAge;
+      })
+      .then((datos) => {
+        setData(datos);
+        const pacientesNombres = Object.keys(datos);
+        setPacientes(pacientesNombres);
+        setIsLoading(true);
+      });
   };
+  console.log(data["ABREGU, DONATO"]?.medicamento);
+  // const groupedByAge=  data?.uti?.reduce((acc, obj) => {
+  //   const key = obj["nombrePaciente"];
+  //   if (!acc[key]) {
+  //     acc[key] = [];
+  //   }
+  //   acc[key].push(obj);
+  //   return acc;
+  // }, [])
+
+  // console.log(groupedByAge)
 
   return (
     <SectionBackgroun>
@@ -48,18 +76,25 @@ export default function PaginaDashborad() {
           consultar
         </button>
       </form>
+      <div className="flex flex-col text-sm border items-center justify-between bg-white p-1 rounded-lg gap-2 w-1/2">
+        {isLoading &&
+          pacientes?.map((paciente, i) => (
+            <div
+              key={i}
+              className="flex bg-gray-200 items-center mx-auto justify-between p-1 w-full"
+            >
+              <div className="flex flex-col items-center justify-between p-1 gap-2 mx-auto">
+                <h2>{paciente}</h2>
 
-      {
-data?
-<div className="flex flex-col text-sm border p-1 rounded-lg gap-2"> {data?.UTI?.map((paciente)=>(
-<div key={paciente?.paciente} className="flex bg-gray-200 items-center justify-between p-1">
-  <p>{paciente?.nombrePaciente}</p>
-  <p>{paciente?.medicamento}</p>
-
-</div>))}</div>
-:
-null
-      }
+                <div className="flex flex-col items-center justify-between p-1 gap-2">
+                  {data[paciente]?.map((pac, i) => (
+                    <p key={pac?.idPaciente}>{pac?.medicamento}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
     </SectionBackgroun>
   );
 }
