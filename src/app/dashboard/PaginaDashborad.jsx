@@ -2,47 +2,40 @@
 import { useState } from "react";
 import fetchMssql from "@/base/basemssql";
 import SectionBackgroun from "../componentes/SectionBackgroun";
+import { useRouter } from "next/navigation";
+import { useDataFetch } from "@/context/userDataFetch";
 
 export default function PaginaDashborad() {
+  const router=useRouter()
+
+  const cargaData =useDataFetch((state)=>state.cargaData)
   const [data, setData] = useState(null);
   const [pacientes, setPacientes] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const consultarMssql = (e, serv) => {
     e.preventDefault();
+    setIsLoading(true)
     fetchMssql("uti")
       .then((data) => {
-        const groupedByAge = data?.uti?.reduce((acc, obj) => {
-          const key = obj["nombrePaciente"];
-          if (!acc[key]) {
-            acc[key] = [];
-          }
-          acc[key].push(obj);
-          return acc;
-        }, {});
-        return groupedByAge;
-      })
-      .then((datos) => {
-        setData(datos);
-        const pacientesNombres = Object.keys(datos);
-        setPacientes(pacientesNombres);
-        setIsLoading(true);
-      });
-  };
-  console.log(data["ABREGU, DONATO"]?.medicamento);
-  // const groupedByAge=  data?.uti?.reduce((acc, obj) => {
-  //   const key = obj["nombrePaciente"];
-  //   if (!acc[key]) {
-  //     acc[key] = [];
-  //   }
-  //   acc[key].push(obj);
-  //   return acc;
-  // }, [])
+        cargaData(data)
+        })
+      .then(()=>{
+        setIsLoading(false);
+        router.push('/dashboard/pacientes')
+      })}
 
-  // console.log(groupedByAge)
+  
 
   return (
     <SectionBackgroun>
+      {
+        isLoading ? (
+          <div className="w-full h-full z-20 flex items-center justify-center mx-auto absolute top-0 left-0 bg-white/80 backdrop-blur-sm">
+            <p className="animate-pulse text-xl font-medium m-auto ">cargando...</p>
+          </div>
+          ) : null
+      }
       <p className="mt-4 text-gray-500">
         Seleccione la Sala a traer las indicaciones
       </p>
@@ -76,7 +69,7 @@ export default function PaginaDashborad() {
           consultar
         </button>
       </form>
-      <div className="flex flex-col text-sm border items-center justify-between bg-white p-1 rounded-lg gap-2 w-1/2">
+      {/* <div className="flex flex-col text-sm border items-center justify-between bg-white p-1 rounded-lg gap-2 w-1/2">
         {isLoading &&
           pacientes?.map((paciente, i) => (
             <div
@@ -94,7 +87,7 @@ export default function PaginaDashborad() {
               </div>
             </div>
           ))}
-      </div>
+      </div> */}
     </SectionBackgroun>
   );
 }
