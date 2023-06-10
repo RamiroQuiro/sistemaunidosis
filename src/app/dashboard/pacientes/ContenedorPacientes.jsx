@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import SectionBackgroun from "../../componentes/SectionBackgroun";
 import { useDataFetch } from "@/context/userDataFetch";
 
 export default function ContenedorPacientes({}) {
+  const router=useRouter()
   const { fetching } = useDataFetch((state) => ({
     fetching: state.fetching,
   }));
@@ -11,6 +13,10 @@ export default function ContenedorPacientes({}) {
   const data = fetching?.data;
 
   console.log(data)
+const handlePaciente=(name)=>{
+    router.push('/dashboard/pacientes/'+name)
+}
+
   return (
     <SectionBackgroun>
       <p className="mt-4 text-gray-500">Pacientes de la UTI</p>
@@ -43,9 +49,11 @@ export default function ContenedorPacientes({}) {
                         <p>{data[paciente]?.length}</p>
                       </td>
                       <td className="p-2 text-right">
-                        <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 ">
-                          <span>ir a paciente</span>
-                        </span>
+                        <button 
+                        onClick={()=>handlePaciente(data[paciente][0]?.paciente)}
+                        className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 ">
+                          ir a paciente
+                        </button>
                       </td>
                     </tr>
                   ))}

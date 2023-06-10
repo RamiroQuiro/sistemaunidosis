@@ -44,11 +44,11 @@ export default function PaginaDashborad() {
         className="mx-auto mb-0 mt-8 max-w-md space-y-4 w-1/2 flex flex-col items-center"
       >
         <div className="w-full">
-          <label htmlFor="email" class="sr-only">
+          <label htmlFor="email" className="sr-only">
             Email
           </label>
 
-          <div class="relative">
+          <div className="relative">
             <select
               name="salas"
               id="salas"
