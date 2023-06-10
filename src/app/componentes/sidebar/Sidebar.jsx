@@ -5,7 +5,7 @@ export default function Sidebar() {
   return (
     
 <div className="absolute top-0 left-0 bg-white">
-    <div className="flex flex-col sm:flex-row sm:justify-around">
+    <div className="flex flex-col sm:flex-row sm:justify-around z-30">
     <div className="h-1/3 my-2 relative"><Image fill src={logoCepsi} alt="logoCepsi" /></div>
         <div className="h-screen w-64">
             <nav className="px-6 mt-10">

@@ -9,47 +9,41 @@ export default function ContenedorPacientes({}) {
 
   const pacientes = fetching?.pacientes;
   const data = fetching?.data;
+
+  console.log(data)
   return (
     <SectionBackgroun>
       <p className="mt-4 text-gray-500">Pacientes de la UTI</p>
       <div
-        className="flex bg-gray-200 items-center mx-auto justify-between p-1 w-full"
+        className="flex bg-white items-center mx-auto justify-between p-1 rounded-lg pb-3"
       >
         <div className="flex flex-col items-center justify-between p-1 gap-2 mx-auto">
-          <div className="container p-2 mx-auto sm:p-4 ">
-            <div className="overflow-x-auto">
               <table className="min-w-full text-xs">
-                <thead className="dark:bg-gray-700">
+                <thead className="bg-gray-200 text-violet-500 uppercase">
                   <tr className="text-left">
                     <th className="p-3">id Paciente</th>
-                    <th className="p-3">paciente</th>
-                    <th className="p-3">doctora</th>
-                    <th className="p-3">algo</th>
-                    <th className="p-3 text-right">nose</th>
-                    <th className="p-3">ir a</th>
+                    <th className="p-3">Nombre Paciente</th>
+                    <th className="p-3">Cant Medicamentos</th>
+                    <th className="p-3">Accion</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center py-3">
                   {pacientes?.map((paciente, i) => (
                     <tr
-                      key={data[paciente]?.idPaciente}
+                      key={data[paciente][0]?.paciente}
                       className="border-b border-opacity-20 dark:border-gray-700"
                     >
-                      <td className="p-3">
-                        <p>{data[paciente].idPaciente}</p>
+                      <td className="p-2">
+                        <p>{data[paciente][0]?.servicio}</p>
                       </td>
-                      <td className="p-3">
+                      <td className="p-2">
                         <p>{paciente}</p>
                       </td>
-                      <td className="p-3">
-                        <p>{data[paciente].medicamento}</p>
+                      <td className="p-2">
+                        <p>{data[paciente]?.length}</p>
                       </td>
-                      <td className="p-3">
-                      </td>
-                      <td className="p-3 text-right">
-                      </td>
-                      <td className="p-3 text-right">
-                        <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 ">
+                      <td className="p-2 text-right">
+                        <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 ">
                           <span>ir a paciente</span>
                         </span>
                       </td>
@@ -58,8 +52,6 @@ export default function ContenedorPacientes({}) {
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
       </div>
     </SectionBackgroun>
   );
