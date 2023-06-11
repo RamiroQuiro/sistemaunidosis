@@ -1,10 +1,11 @@
 import { create } from "zustand";
 
-export const useDataFetch = create((set) => ({
+export const useDataFetch = create((set,get) => ({
   fetching: {
     pacientes: [],
     data: {},
   },
+  pacienteActivo:{},
   cargaData: ( data) => {
     const agruparPacientes = data?.uti?.reduce((acc, obj) => {
         const key = obj["nombrePaciente"];
@@ -17,7 +18,17 @@ export const useDataFetch = create((set) => ({
       const pacientesNombres = Object.keys(agruparPacientes);
 
     set((state) => ({
+        ...state,
       fetching: {pacientes:pacientesNombres, data: agruparPacientes },
     }));
   },
+  activarPaciente:(pte)=>{
+    const data=get().fetching.data
+   
+    set((state)=>({
+        ...state,
+        pacienteActivo:data[pte]
+
+    }))
+  }
 }));

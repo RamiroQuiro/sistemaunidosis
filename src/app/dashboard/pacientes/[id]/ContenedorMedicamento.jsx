@@ -1,12 +1,13 @@
 "use client";
 import SectionBackgroun from "@/app/componentes/SectionBackgroun";
 import { useDataFetch } from "@/context/userDataFetch";
-import { useParams } from "next/navigation";
+import { useParams ,useRouter} from "next/navigation";
 import React, { useEffect, useState } from "react";
 import TablaMedicamentos from "./TablaMedicamentos";
 
 export default function ContenedorMedicamento() {
   const params = useParams();
+  const router=useRouter()
   const [medicamentos, setMedicamentos] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const { fetching } = useDataFetch((state) => ({
@@ -28,6 +29,11 @@ export default function ContenedorMedicamento() {
     }
   }, [fetching,medicamentos]);
 
+
+  const selectMedicamento=(idMedicamento)=>{
+      router.push('/dashboard/pacientes/'+params.id+'/'+idMedicamento)
+  }
+
   return <SectionBackgroun>
      <div className="flex flex-col items-center justify-between p-1 gap-2 mx-auto">
      <div
@@ -35,7 +41,7 @@ export default function ContenedorMedicamento() {
       >
           { 
             isLoading&&
-            <TablaMedicamentos  medicamentos={medicamentos} key={medicamentos[0]?.paciente}/>
+            <TablaMedicamentos  medicamentos={medicamentos} key={medicamentos[0]?.paciente} onClick={selectMedicamento}/>
           
           }
             </div>

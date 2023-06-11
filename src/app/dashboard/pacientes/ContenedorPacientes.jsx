@@ -8,13 +8,15 @@ export default function ContenedorPacientes({}) {
   const { fetching } = useDataFetch((state) => ({
     fetching: state.fetching,
   }));
-
+const activarPaciente=useDataFetch((state)=>state.activarPaciente)
   const pacientes = fetching?.pacientes;
   const data = fetching?.data;
 
   console.log(data)
-const handlePaciente=(name)=>{
+const handlePaciente=(name,paciente)=>{
+  activarPaciente(paciente)
     router.push('/dashboard/pacientes/'+name)
+
 }
 
   return (
@@ -50,7 +52,7 @@ const handlePaciente=(name)=>{
                       </td>
                       <td className="p-2 text-right">
                         <button 
-                        onClick={()=>handlePaciente(data[paciente][0]?.paciente)}
+                        onClick={()=>handlePaciente(data[paciente][0]?.paciente,paciente)}
                         className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 ">
                           ir a paciente
                         </button>
