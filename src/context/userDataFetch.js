@@ -6,8 +6,8 @@ export const useDataFetch = create((set,get) => ({
     data: {},
   },
   pacienteActivo:{},
-  cargaData: ( data) => {
-    const agruparPacientes = data?.uti?.reduce((acc, obj) => {
+  cargaData: ( data,serv) => {
+    const agruparPacientes = data?.[serv]?.reduce((acc, obj) => {
         const key = obj["nombrePaciente"];
         if (!acc[key]) {
           acc[key] = [];

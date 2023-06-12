@@ -1,7 +1,7 @@
-import React from 'react'
+
 import ContenedorPacientes from './ContenedorPacientes'
 
-export default function page() {
+export default function Pacientes() {
   return (
     <ContenedorPacientes/>
   )

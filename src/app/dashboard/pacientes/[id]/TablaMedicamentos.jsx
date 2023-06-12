@@ -17,7 +17,7 @@ export default function TablaMedicamentos({ medicamentos ,onClick}) {
         {medicamentos?.map((medicamento, i) => (
           <tr
             key={medicamento?.idMedicamento}
-            className="border-b border-opacity-20 dark:border-gray-700"
+            className="border-b border-opacity-20 border-gray-700"
           >
             <td className="p-2">
               <p>{medicamento?.medicamento}</p>
@@ -31,9 +31,9 @@ export default function TablaMedicamentos({ medicamentos ,onClick}) {
             <td className="p-2 text-right">
               <button
                 onClick={() => onClick(medicamento?.idMedicamento)}
-                className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 "
+                className="px-3 py-1 font-semibold text-gray-100 rounded-md bg-violet-500 "
               >
-                ir a paciente
+                ir a etiqueta
               </button>
             </td>
           </tr>

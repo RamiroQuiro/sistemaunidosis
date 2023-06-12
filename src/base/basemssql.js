@@ -6,7 +6,7 @@ const fetchMssql=async(servicio)=>{
     .then(data=>{
         const respuesta=data.json()
         return respuesta
-    }).catch((error)=>error)
+    }).catch((error)=>console.log(error))
     return data
 }
 

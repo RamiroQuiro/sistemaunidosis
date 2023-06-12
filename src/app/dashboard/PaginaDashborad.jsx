@@ -10,32 +10,32 @@ export default function PaginaDashborad() {
 
   const cargaData = useDataFetch((state) => state.cargaData);
   const [data, setData] = useState(null);
-  const [servicio, setServicio] = useState(null);
+  const [servicio, setServicio] = useState("intercom1");
   const [isLoading, setIsLoading] = useState(false);
 
-  const consultarMssql = (e, serv) => {
+  const consultarMssql = async(e, serv) => {
     e.preventDefault();
     setIsLoading(true);
-    fetchMssql(serv)
+    await fetchMssql(serv)
       .then((data) => {
-        cargaData(data);
+        cargaData(data,serv);
       })
       .then(() => {
         router.push("/dashboard/pacientes");
         setIsLoading(false);
       });
   };
-  const onChangeSelect=(e)=>{
-   setServicio(e.target.value);
-  }
+  const onChangeSelect = (e) => {
+    setServicio(e.target.value);
+  };
 
   return (
     <SectionBackgroun>
       {isLoading ? (
-        <div className="w-full h-full z-20 flex items-center justify-center mx-auto absolute top-0 left-0 bg-white/80 backdrop-blur-sm">
-          <p className="animate-pulse text-xl font-medium m-auto ">
-            cargando...
-          </p>
+        <div className="w-full h-full z-20 flex items-center justify-center mx-auto absolute top-0 left-0 bg-gradient-to-tr to-blue-500/40 from-rose-500/40 backdrop-blur-sm">
+          <div className="lds-ripple  text-xl font-medium m-auto ">
+          <div></div><div></div>  
+          </div>
         </div>
       ) : null}
       <h2 className="mt-4 text-gray-500 text-xl font-semibold">
@@ -46,24 +46,25 @@ export default function PaginaDashborad() {
         className="mx-auto mb-0 mt-8 max-w-md space-y-4 w-1/2 flex flex-col items-center"
       >
         <div className="w-full">
-        
           <div className="relative">
             <select
-            onChange={onChangeSelect}
+              onChange={onChangeSelect}
               name="servicios"
               id="salas"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             >
-              <option value={"sala1"}>Sala 1</option>
-              <option  value={"sala2"}>Sala 2</option>
-              <option  value={"sala3"} >Sala 3</option>
-              <option  value={"uti"}>Sala 4</option>
+              <option value={"intercom1"}>Sala 1</option>
+              <option value={"intercom2"}>Sala 2</option>
+              <option value={"intercom3"}>Sala 3</option>
+              <option value={"cuidinter"}>Sala 4</option>
+              {/* <option value={"hospdia"}>Hospital de Dia</option> */}
+              <option value={"UTI"}>UTI</option>
             </select>
           </div>
         </div>
 
         <button
-          onClick={(e)=>consultarMssql(e,servicio)}
+          onClick={(e) => consultarMssql(e, servicio)}
           className="inline-block rounded-lg bg-blue-500 px-5 py-3 w-2/5 text-sm font-medium text-white"
         >
           consultar

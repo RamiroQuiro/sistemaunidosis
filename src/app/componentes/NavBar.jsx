@@ -1,9 +1,11 @@
 import Image from "next/image";
 import logoCepsi from "../../../public/logocontorno.png";
+import { useRouter } from "next/navigation";
+import BotonConsultaNueva from "./BotonConsultaNueva";
 
 export default function NavBar() {
   return (
-    <header className="fixed w-full mx-auto">
+    <header className="fixed w-full z-20 mx-auto">
       <div className="flex items-center justify-between py-5 px-10">
         <div className="text-center flex items-center gap-x-5">
           <div className="w-1/3 items-center mx-auto relative">
@@ -49,12 +51,7 @@ export default function NavBar() {
               </svg>
             </button> */}
 
-          <button
-            className="block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
-            type="button"
-          >
-            Nueva Consulta
-          </button>
+       <BotonConsultaNueva/>
         </div>
       </div>
     </header>

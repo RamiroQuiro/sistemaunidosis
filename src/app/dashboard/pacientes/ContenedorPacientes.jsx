@@ -20,6 +20,8 @@ const handlePaciente=(name,paciente)=>{
 
 }
 
+
+
   return (
     <SectionBackgroun>
       <h2 className="mt-4 text-gray-500 text-xl font-semibold">Pacientes de la {data[pacientes[0]][0]?.servicio}</h2>
@@ -54,7 +56,7 @@ const handlePaciente=(name,paciente)=>{
                       <td className="p-2 text-right">
                         <button 
                         onClick={()=>handlePaciente(data[paciente][0]?.paciente,paciente)}
-                        className="px-3 py-1 font-semibold rounded-md dark:bg-violet-500 ">
+                        className="px-3 py-1 text-gray-100 font-semibold rounded-md bg-violet-500 ">
                           ir a paciente
                         </button>
                       </td>

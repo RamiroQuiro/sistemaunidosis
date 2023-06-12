@@ -1,7 +1,7 @@
-import React from 'react'
+
 import PaginaDashborad from './PaginaDashborad'
 
-export default function page() {
+export default function Dashboard() {
   return (
    <PaginaDashborad/>
   )
