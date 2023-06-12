@@ -28,13 +28,24 @@ export default function BodyRotulo({ idMed }) {
         className="w-full flex flex-col bg-gray-200 rounded items-center justify-between gap-1 my-0.5 p-1"
       >
         <div className="w-full font-medium flex items-center justify-between mx-auto">
-             <label htmlFor="FechaPrep" className="">
+          <label htmlFor="FechaPrep" className="">
             FechaPrep:
-          
-          </label>   <input type="date" name="FechaPrep" id="" className="w-1/2  rounded py-1 ml-2" /><label htmlFor="horaPrep" className="">
+          </label>{" "}
+          <input
+            type="date"
+            name="FechaPrep"
+            id=""
+            className="w-1/2  rounded py- ml-2"
+          />
+          <label htmlFor="horaPrep" className="">
             HoraPrep:
-         
-          </label>   <input type="time" name="horaPrep" id="" className="w-1/2  rounded py-1 ml-2" />
+          </label>{" "}
+          <input
+            type="time"
+            name="horaPrep"
+            id=""
+            className="w-1/2  rounded py- ml-2"
+          />
         </div>
         <div className="w-full font-medium flex items-center justify-between mx-auto">
           Heladera
@@ -46,19 +57,34 @@ export default function BodyRotulo({ idMed }) {
           </select>{" "}
           <label htmlFor="FechaAdm" className="">
             Fecha Adm:
-            <input type="date" name="FechaAdm" id="" className="w-1/2 rounded py-1 ml-2" />
+            <input
+              type="date"
+              name="FechaAdm"
+              id=""
+              className="w-1/2 rounded py- ml-2"
+            />
           </label>
         </div>
         <div className="w-full font-medium">
           <label htmlFor="operadora">
             Operadora
-            <input type="text" name="operadora" id="" className="w-1/2 rounded py-1 ml-2"/>
+            <input
+              type="text"
+              name="operadora"
+              id=""
+              className="w-1/2 rounded py- ml-2"
+            />
           </label>
         </div>
         <div className="w-full font-medium">
-        <label htmlFor="operadora">
+          <label htmlFor="operadora">
             Asistente
-            <input type="text" name="operadora" id="" className="w-1/2 rounded py-1 ml-2"/>
+            <input
+              type="text"
+              name="operadora"
+              id=""
+              className="w-1/2 rounded py- ml-2"
+            />
           </label>
         </div>
       </form>

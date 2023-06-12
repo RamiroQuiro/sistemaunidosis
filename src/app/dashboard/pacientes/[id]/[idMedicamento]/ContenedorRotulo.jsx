@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import BodyRotulo from "./BodyRotulo";
 import HeadRotulo from "./HeadRotulo";
+import BotonVolver from "@/app/componentes/BotonVolver";
 export default function ContenedorRotulo() {
   const params = useParams();
   const [idMed, setIdMed] = useState({});
@@ -31,6 +32,16 @@ export default function ContenedorRotulo() {
 
        <BodyRotulo idMed={idMed}/>
         </div>
+      </div>
+      <div className="w- mt-8 flex items-center gap-x-10 justify-between">
+   <BotonVolver/>
+        
+         <button
+          onClick={"consultarMssql"}
+          className="inline-block rounded-lg bg-blue-500 px-5 py-3  text-sm font-medium text-white"
+        >
+          Imprimir
+        </button>
       </div>
     </SectionBackgroun>
   );

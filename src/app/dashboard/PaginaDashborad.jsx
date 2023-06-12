@@ -6,64 +6,64 @@ import { useRouter } from "next/navigation";
 import { useDataFetch } from "@/context/userDataFetch";
 
 export default function PaginaDashborad() {
-  const router=useRouter()
+  const router = useRouter();
 
-  const cargaData =useDataFetch((state)=>state.cargaData)
+  const cargaData = useDataFetch((state) => state.cargaData);
   const [data, setData] = useState(null);
-  const [pacientes, setPacientes] = useState(null);
+  const [servicio, setServicio] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const consultarMssql = (e, serv) => {
     e.preventDefault();
-    setIsLoading(true)
-    fetchMssql("uti")
+    setIsLoading(true);
+    fetchMssql(serv)
       .then((data) => {
-        cargaData(data)
-        })
-      .then(()=>{
+        cargaData(data);
+      })
+      .then(() => {
+        router.push("/dashboard/pacientes");
         setIsLoading(false);
-        router.push('/dashboard/pacientes')
-      })}
-
-  
+      });
+  };
+  const onChangeSelect=(e)=>{
+   setServicio(e.target.value);
+  }
 
   return (
     <SectionBackgroun>
-      {
-        isLoading ? (
-          <div className="w-full h-full z-20 flex items-center justify-center mx-auto absolute top-0 left-0 bg-white/80 backdrop-blur-sm">
-            <p className="animate-pulse text-xl font-medium m-auto ">cargando...</p>
-          </div>
-          ) : null
-      }
-      <p className="mt-4 text-gray-500">
+      {isLoading ? (
+        <div className="w-full h-full z-20 flex items-center justify-center mx-auto absolute top-0 left-0 bg-white/80 backdrop-blur-sm">
+          <p className="animate-pulse text-xl font-medium m-auto ">
+            cargando...
+          </p>
+        </div>
+      ) : null}
+      <h2 className="mt-4 text-gray-500 text-xl font-semibold">
         Seleccione la Sala a traer las indicaciones
-      </p>
+      </h2>
       <form
         action=""
         className="mx-auto mb-0 mt-8 max-w-md space-y-4 w-1/2 flex flex-col items-center"
       >
         <div className="w-full">
-          <label htmlFor="email" className="sr-only">
-            Email
-          </label>
-
+        
           <div className="relative">
             <select
-              name="salas"
+            onChange={onChangeSelect}
+              name="servicios"
               id="salas"
               className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
             >
-              <option>Sala 1</option>
-              <option>Sala 2</option>
-              <option defaultValue={true}>Sala 3</option>
-              <option>Sala 4</option>
+              <option value={"sala1"}>Sala 1</option>
+              <option  value={"sala2"}>Sala 2</option>
+              <option  value={"sala3"} >Sala 3</option>
+              <option  value={"uti"}>Sala 4</option>
             </select>
           </div>
         </div>
 
         <button
-          onClick={consultarMssql}
+          onClick={(e)=>consultarMssql(e,servicio)}
           className="inline-block rounded-lg bg-blue-500 px-5 py-3 w-2/5 text-sm font-medium text-white"
         >
           consultar

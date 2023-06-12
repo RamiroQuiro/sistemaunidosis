@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import Sidebar from "../componentes/sidebar/Sidebar";
+import Footer from "../componentes/Footer";
+import NavBar from "../componentes/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,9 +15,11 @@ export default function appLayout({ children }) {
     <html lang="es">
       <body className="w-full ">
         <main className="w-full relative">
-          <Sidebar />
+          <NavBar/>
+          {/* <Sidebar /> */}
           {children}
         </main>
+        <Footer/>
       </body>
     </html>
   );

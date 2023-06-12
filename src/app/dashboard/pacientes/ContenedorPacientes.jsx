@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import SectionBackgroun from "../../componentes/SectionBackgroun";
 import { useDataFetch } from "@/context/userDataFetch";
+import BotonVolver from "@/app/componentes/BotonVolver";
 
 export default function ContenedorPacientes({}) {
   const router=useRouter()
@@ -12,7 +13,7 @@ const activarPaciente=useDataFetch((state)=>state.activarPaciente)
   const pacientes = fetching?.pacientes;
   const data = fetching?.data;
 
-  console.log(data)
+  // console.log(data)
 const handlePaciente=(name,paciente)=>{
   activarPaciente(paciente)
     router.push('/dashboard/pacientes/'+name)
@@ -21,9 +22,9 @@ const handlePaciente=(name,paciente)=>{
 
   return (
     <SectionBackgroun>
-      <p className="mt-4 text-gray-500">Pacientes de la UTI</p>
+      <h2 className="mt-4 text-gray-500 text-xl font-semibold">Pacientes de la {data[pacientes[0]][0]?.servicio}</h2>
       <div
-        className="flex bg-white items-center mx-auto justify-between p-1 rounded-lg pb-3"
+        className="flex bg-white items-center mx-auto justify-between p-1 rounded-lg pb-3 my-5"
       >
         <div className="flex flex-col items-center justify-between p-1 gap-2 mx-auto">
               <table className="min-w-full text-xs">
@@ -42,7 +43,7 @@ const handlePaciente=(name,paciente)=>{
                       className="border-b border-opacity-20 dark:border-gray-700"
                     >
                       <td className="p-2">
-                        <p>{data[paciente][0]?.servicio}</p>
+                        <p>{data[paciente][0]?.paciente}</p>
                       </td>
                       <td className="p-2">
                         <p>{paciente}</p>
@@ -63,6 +64,7 @@ const handlePaciente=(name,paciente)=>{
               </table>
             </div>
       </div>
+      <BotonVolver/>
     </SectionBackgroun>
   );
 }

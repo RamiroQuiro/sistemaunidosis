@@ -4,13 +4,12 @@ export default function TablaMedicamentos({ medicamentos ,onClick}) {
 
     
   return (
-    <table className="min-w-full text-xs">
+    <table className="min-w-full text-xs px-2">
       <thead className="bg-gray-200 text-violet-500 uppercase">
         <tr className="text-center">
           <th className="p-3">Medicamento</th>
           <th className="p-3">Indicaciones</th>
-          <th className="p-3">Posologia</th>
-          <th className="p-3">Unidad</th>
+          <th className="p-3">Presentacion</th>
           <th className="p-3">Accion</th>
         </tr>
       </thead>
@@ -25,9 +24,6 @@ export default function TablaMedicamentos({ medicamentos ,onClick}) {
             </td>
             <td className="p-2">
               <p>{medicamento?.indicaciones}</p>
-            </td>
-            <td className="p-2">
-              <p>{medicamento?.idPaciente}</p>
             </td>
             <td className="p-2">
               <p>{medicamento?.unidad}</p>

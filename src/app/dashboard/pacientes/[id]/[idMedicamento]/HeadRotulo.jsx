@@ -3,7 +3,7 @@ import logoCepsi from "../../../../../../public/logocontorno.png";
 
 export default function HeadRotulo({idMed}) {
   return (
-    <div className="flex  items-center justify-between w-full bg-gradient-to-tr to-blue-500/80 from-rose-400/80 p-1 rounded-t-lg">
+    <div className="flex print:bg-gray-500 items-center border-b-2 justify-between w-full bg-gradient-to-tr to-blue-500/80 from-rose-400/80 p-1 rounded-t-lg">
     <div className="w-1/3 items-center mx-auto relative">
         <Image
         className='object-contain object-center'
@@ -22,7 +22,7 @@ export default function HeadRotulo({idMed}) {
         </div>
         <div className="flex w-full gap-x-3 items-center justify-between">
           <p>Edad:{idMed?.edad1}</p>
-          <p>ID:{idMed?.paciente.slice(2,-1)}</p> <p> Servicio:{idMed?.servicio}</p>
+          <p>ID:{idMed?.paciente?.slice(2,-1)}</p> <p> Servicio:{idMed?.servicio}</p>
         </div>
       </div>
     </div>
