@@ -1,6 +1,5 @@
 import Image from "next/image";
 import logoCepsi from "../../../public/logocontorno.png";
-import { useRouter } from "next/navigation";
 import BotonConsultaNueva from "./BotonConsultaNueva";
 
 export default function NavBar() {

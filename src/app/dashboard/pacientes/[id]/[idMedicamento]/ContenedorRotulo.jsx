@@ -37,7 +37,9 @@ export default function ContenedorRotulo() {
    <BotonVolver/>
         
          <button
-          onClick={"consultarMssql"}
+          onClick={()=>{
+              window.print()
+          }}
           className="inline-block rounded-lg bg-blue-500 px-5 py-3  text-sm font-medium text-white  hover:bg-violet-500"
         >
           Imprimir
