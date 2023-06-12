@@ -27,93 +27,89 @@ export default function BodyRotulo({ idMed }) {
           <option value="cutaneo">Cutaneo</option>
         </select>
       </div>
-      <form
-        className="w-full text-sm flex flex-col bg-gray-200 rounded items-center justify-between gap-1 my-0.5 p-1"
-      >
-        <div className="w-full font-medium flex items-center justify-between mx-auto">
+      <form className="w-full text-sm flex flex-col bg- rounded items-center justify-between gap-1 my-0.5 p-1">
+        <div className="w-full font-medium flex items-center  rounded p-0.5 border justify-between mx-auto">
           <label htmlFor="FechaPrep" className="">
             FechaPrep:
-          </label>{" "}
-          <input
-            type="date"
-            name="FechaPrep"
-            id=""
-            className="w-1/2  rounded py- ml-2"
-          />
+            <input
+              type="date"
+              name="FechaPrep"
+              id=""
+              className="w-  rounded py- ml-2"
+            />{" "}
+          </label>
           <label htmlFor="horaPrep" className="">
             HoraPrep:
-          </label>{" "}
-          <input
-            type="time"
-            name="horaPrep"
-            id=""
-            className="w-1/2  rounded py- ml-2"
-          />
+            <input
+              type="time"
+              name="horaPrep"
+              id=""
+              className="w- rounded py- ml-2"
+            />{" "}
+          </label>
         </div>
-        <div className="w-full font-medium flex items-center justify-between mx-auto">
+        <div className="w-full font-medium border  rounded p-0.5 flex items-center justify-between mx-auto">
           <label htmlFor="horaAdm" className="">
             Hora Adm:
-          </label>{" "}
+          
           <input
             type="time"
             name="horaPrep"
             id=""
-            className="w-1/3 rounded py- ml-2"
-          />
+            className="w- rounded py- ml-2"
+          /></label>{" "}
           <label htmlFor="FechaAdm" className="">
             FechaAdm:
             <input
               type="date"
               name="FechaAdm"
               id=""
-              className="w-1/2 rounded py- ml-2"
+              className="w- rounded py- ml-2"
             />
           </label>
         </div>
         <div className="w-full font-medium flex items-center gap-x-2 justify-between mx-auto">
-        <div className="flex flex-col border rounded ">
+          <div className="flex flex-col border rounded p-0.5">
             {" "}
             <label htmlFor="horaAdm" className="inline-flex">
               Dosis:
-            <input
-              type="number"
-              name="horaPrep"
-              id=""
-              className="w-full rounded py- ml-2"
+              <input
+                type="number"
+                name="horaPrep"
+                id=""
+                className="w-full rounded py- ml-2"
               />
-              </label>
+            </label>
             <label htmlFor="horaAdm" className="inline-flex">
               Vol:
-            <input
-              type="number"
-              name="horaPrep"
-              id=""
-              className="w-full rounded py- ml-2"
+              <input
+                type="number"
+                name="horaPrep"
+                id=""
+                className="w-full rounded py- ml-2"
               />
-              </label>{" "}
+            </label>{" "}
           </div>
           <div className="flex flex-col border rounded w-1/2">
             {" "}
             <label htmlFor="horaAdm" className="inline-flex">
               Solvente:
-            <input
-              type="number"
-              name="horaPrep"
-              id=""
-              className="w-full rounded py- ml-2"
-              />
-              </label>
+              <select name="solventes" id="">
+                <option value="fisiológico ">fisiológico</option>
+                <option value="fisiológico">fisiológico</option>
+                <option value="fisiológico">fisiológico</option>
+              </select>
+            </label>
             <label htmlFor="horaAdm" className="inline-flex">
               Vol:
-            <input
-              type="number"
-              name="horaPrep"
-              id=""
-              className="w-full rounded py- ml-2"
+              <input
+                type="number"
+                name="horaPrep"
+                id=""
+                className="w-full rounded py- ml-2"
               />
-              </label>{" "}
+            </label>{" "}
           </div>
-          
         </div>
         <div className="w-full font-medium">
           <label htmlFor="operadora">
@@ -138,7 +134,9 @@ export default function BodyRotulo({ idMed }) {
           </label>
         </div>
       </form>
-      <p className="text-sm font-bold mx-auto mt-1 -bottom-4 absolute left-14">¡Alcemos la voz por la seguridad del paciente!</p>
+      <p className="text-sm font-bold mx-auto mt-1 -bottom-4 absolute left-14">
+        ¡Alcemos la voz por la seguridad del paciente!
+      </p>
     </div>
   );
 }
