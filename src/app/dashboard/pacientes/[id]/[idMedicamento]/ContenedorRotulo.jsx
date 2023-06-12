@@ -36,7 +36,7 @@ export default function ContenedorRotulo() {
                 </div>
                 <div className="flex w-full gap-x-3">
                   {" "}
-                  <p>ID:{idMed?.paciente}</p> <p>{idMed?.servicio}</p>
+                  <p>ID:{idMed?.paciente}</p> <p> Servicio:{idMed?.servicio}</p>
                 </div>
               </div>
             </div>
@@ -46,10 +46,7 @@ export default function ContenedorRotulo() {
               <p>
                 <strong>Medicamento:</strong> {idMed?.medicamento}
               </p>
-              <p>
-                <strong>Present: </strong>
-                {idMed?.unidad}
-              </p>
+             
             </div>
             <div className="flex w-full gap-x-3">
               <p>
@@ -62,7 +59,8 @@ export default function ContenedorRotulo() {
                 {idMed?.frecuenciaHoras}hs
               </p>
               <p>
-                <strong>Frecuencia:</strong> omeprazol
+                <strong>Present: </strong>
+                {idMed?.unidad}
               </p>
             </div>
           </div>
