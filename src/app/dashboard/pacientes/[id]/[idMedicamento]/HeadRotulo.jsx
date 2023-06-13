@@ -3,7 +3,7 @@ import logoCepsi from "../../../../../../public/logocontorno.png";
 
 export default function HeadRotulo({ idMed }) {
   return (
-    <div className="flex print:bg-gray-500 items-center border-b-2 justify-between w-full bg-gradient-to-tr to-blue-500/80 from-rose-400/80 p- rounded-t-lg">
+    <div className="flex print:bg-gray-500 items-center border-b-2 justify-between w-full bg-gradient-toto-blue-500/80 from-rose-400/80 p- rounded-t-lg">
       {/* <div className="w-1/3 items-center mx-auto relative">
         <Image
           className="object-contain object-center"
@@ -15,15 +15,17 @@ export default function HeadRotulo({ idMed }) {
         />
       </div> */}
       <div className="flex items-center w-full flex-col ">
-        <div className="w-full flex text font-bold items-center gap-y-0.5 flex-col px-1.5">
-          <div className="flex w-full gap-x-3 items-center justify-between">
+        <div className="w-full flex text-center font-bold items-center gap-y-0.5 flex-col px-1.5">
+          <div className="flex w-full gap-x-3 text-center items-center justify-between px-2">
             {" "}
-            <p><span className="text-sm">Paciente:</span>{idMed?.nombrePaciente}</p>{" "}
+            <span className="w-[75%] h-7 text-base text-center text-ellipsis tracking-tighter overflow-hidden ...">{idMed?.nombrePaciente}</span>{" "}
+            <span className=" text-sm">ID:{idMed?.paciente?.slice(3, -1)}</span>
           </div>
           <div className="flex w-full gap-x-1 items-center justify-between">
-            <p><span className="text-sm">Edad:</span>{idMed?.edad1}</p>
-            <p><span className="text-sm">ID</span>:{idMed?.paciente?.slice(2, -1)}</p>{" "}
-            <p><span className="text-sm"> Serv:</span> Sala3   {/*idMed?.servicio*/}</p>
+            <p><span className="text-sm">Edad:</span>{idMed?.edad1}años</p>
+            <p><span className="text-sm">Peso:</span>{idMed?.edad1}Kg</p>
+         
+            <p><span className="text-sm uppercase"> Sala3</span>    {/*idMed?.servicio*/}</p>
           </div>
         </div>
       </div>

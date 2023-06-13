@@ -6,7 +6,7 @@ export default function Rotulo({ idMed,id }) {
   return (
     <div
     
-    id={id} className="bg-white print: text-sm  w-[320px] h-[230px] print:block rounded-lg  flex flex-col items-center justify-between border-2 ">
+    id={id} className="bg-white print: text-sm  w-[360px] h-[250px] print:block rounded-lg  flex flex-col items-center justify-between border-2 ">
       <HeadRotulo idMed={idMed} />
 
       <BodyRotulo idMed={idMed} />

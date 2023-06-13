@@ -1,90 +1,77 @@
 import React from "react";
+import ContenedorDivBodyRotulo from "./ContenedorDivBodyRotulo";
 
 export default function BodyRotulo({ idMed }) {
   return (
-    <div className="flex  items-start justify-evenly leading-tight tracking-tight w-full flex-col relative  my-1">
-      <div className="flex w-full bg-gray-200 gap-x-3">
+    <div className="flex  items-center text-center mx-auto font-bold justify-evenly leading-tight tracking-tight w-full flex-col relative  my-1">
+      <ContenedorDivBodyRotulo>
+        <p className="text-base">{idMed?.medicamento}</p>
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>Medicamento:</strong> {idMed?.medicamento}
+          <span className="font-medium">Indicacion:</span> {idMed?.indicaciones}
+        </p>{" "}
+        <p>
+          <spam className="font-medium">Volumen: </spam>
+          1mls
         </p>
-      </div>
-      <div className="flex w-full gap-x-3">
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>Indicacion:</strong> {idMed?.indicaciones}
-        </p>
-      </div>
-      <div className="flex w-full  bg-gray-200 gap-x-3">
-        <p>
-          <strong>Frecuencia:</strong>
+          <span className="font-medium">Frecuencia:</span>
           {idMed?.frecuenciaHoras}hs
         </p>
         <p>
-          <strong>Present: </strong>
+          <span className="font-medium">Present: </span>
           {idMed?.unidad}
         </p>
         <p>
-          <strong>Subcutaneo </strong>
+          <span className="font-medium">Subcutaneo </span>
         </p>
-      </div>
-      <div className="flex w-full gap-x-3">
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>FechaPrep:</strong>
+          <spam className="font-medium">FechaPrep:</spam>
           10/50/2015
         </p>
         <p>
-          <strong>HrPrep: </strong>
+          <spam className="font-medium"> HrPrep: </spam>
           12:50hs
         </p>
-     
-      </div>
-      <div className="flex w-full bg-gray-200 gap-x-3">
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>HrAdmin:</strong>
+          <spam className="font-medium">HrAdmin:</spam>
           12:50hs
         </p>
         <p>
-          <strong>FechaAdmn: </strong>
+          <spam className="font-medium">FechaAdmn: </spam>
           12:50hs
         </p>
-     
-      </div>
-      <div className="flex w-full  gap-x-3">
+      </ContenedorDivBodyRotulo>
+
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>Dosis</strong>
-          700mgs
+          <spam className="font-medium">Solvente</spam>
+          Dexamet
         </p>
         <p>
-          <strong>Volumen: </strong>
+          <spam className="font-medium">Volumen: </spam>
           1mls
         </p>
-     
-      </div>
-      
-      <div className="flex w-full bg-gray-200  gap-x-3">
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>Solvente</strong>
-         Dexamet
+          <spam className="font-medium">Operadora:</spam>
+          La Roxana
         </p>
+      </ContenedorDivBodyRotulo>
+      <ContenedorDivBodyRotulo>
         <p>
-          <strong>Volumen: </strong>
-          1mls
-        </p>
-     
-      </div>
-      <div className="flex w-full  gap-x-3">
-        <p>
-          <strong>Operadora:</strong>
-         La Roxana
-        </p>
-        
-      </div>
-      <div className="flex w-full bg-gray-200  gap-x-3">
-      <p>
-          <strong>Asistente: </strong>
+          <spam className="font-medium">Asistente: </spam>
           La Deborado
         </p>
-        </div>
-     
+      </ContenedorDivBodyRotulo>
 
       {/* <form className="w-full text-sm flex flex-col bg- rounded items-center justify-between gap-1 my-0.5 p-1">
         <div className="w-full font-medium flex items-center  rounded p-0.5 border justify-between mx-auto">

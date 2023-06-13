@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import BotonVolver from "@/app/componentes/BotonVolver";
 import Rotulo from "./Rotulo";
+import Sidebar from "@/app/componentes/sidebar/Sidebar";
 export default function ContenedorRotulo() {
   const [printer, setPrinter] = useState(false);
   const params = useParams();
@@ -33,15 +34,16 @@ export default function ContenedorRotulo() {
     const centimetrosPorPulgada = dpi / 2.54;
     return centimetrosPorPulgada * centimetros;
   };
+  /*funcion para calcular cm en pixeles 
   const anchoEnPixeles = centimetrosAPixeles(7, 72);
-  console.log(anchoEnPixeles);
-
+*/
   return (
     <>
       {printer ? (
         <Rotulo id="printContent" idMed={idMed} key={1} />
       ) : (
         <SectionBackgroun>
+          <Sidebar/>
           <div className="bg-white  p-1.5  rounded-lg  flex flex-col items-center justify-between ">
             <Rotulo id="printContent" idMed={idMed} key={2} />
           </div>
