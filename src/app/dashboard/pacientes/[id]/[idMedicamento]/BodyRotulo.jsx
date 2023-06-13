@@ -2,8 +2,8 @@ import React from "react";
 
 export default function BodyRotulo({ idMed }) {
   return (
-    <div className="flex text-base items-start leading-tight tracking-wider w-full flex-col relative justify-evenly my-2">
-      <div className="flex w-full gap-x-3">
+    <div className="flex  items-start justify-evenly leading-tight tracking-tight w-full flex-col relative  my-1">
+      <div className="flex w-full bg-gray-200 gap-x-3">
         <p>
           <strong>Medicamento:</strong> {idMed?.medicamento}
         </p>
@@ -13,7 +13,7 @@ export default function BodyRotulo({ idMed }) {
           <strong>Indicacion:</strong> {idMed?.indicaciones}
         </p>
       </div>
-      <div className="flex w-full gap-x-3">
+      <div className="flex w-full  bg-gray-200 gap-x-3">
         <p>
           <strong>Frecuencia:</strong>
           {idMed?.frecuenciaHoras}hs
@@ -22,12 +22,71 @@ export default function BodyRotulo({ idMed }) {
           <strong>Present: </strong>
           {idMed?.unidad}
         </p>
-        <select name="subcutaneo" id="" className="cursor-pointer">
-          <option value="subcutaneo">Subcutan</option>
-          <option value="cutaneo">Cutaneo</option>
-        </select>
+        <p>
+          <strong>Subcutaneo </strong>
+        </p>
       </div>
-      <form className="w-full text-sm flex flex-col bg- rounded items-center justify-between gap-1 my-0.5 p-1">
+      <div className="flex w-full gap-x-3">
+        <p>
+          <strong>FechaPrep:</strong>
+          10/50/2015
+        </p>
+        <p>
+          <strong>HrPrep: </strong>
+          12:50hs
+        </p>
+     
+      </div>
+      <div className="flex w-full bg-gray-200 gap-x-3">
+        <p>
+          <strong>HrAdmin:</strong>
+          12:50hs
+        </p>
+        <p>
+          <strong>FechaAdmn: </strong>
+          12:50hs
+        </p>
+     
+      </div>
+      <div className="flex w-full  gap-x-3">
+        <p>
+          <strong>Dosis</strong>
+          700mgs
+        </p>
+        <p>
+          <strong>Volumen: </strong>
+          1mls
+        </p>
+     
+      </div>
+      
+      <div className="flex w-full bg-gray-200  gap-x-3">
+        <p>
+          <strong>Solvente</strong>
+         Dexamet
+        </p>
+        <p>
+          <strong>Volumen: </strong>
+          1mls
+        </p>
+     
+      </div>
+      <div className="flex w-full  gap-x-3">
+        <p>
+          <strong>Operadora:</strong>
+         La Roxana
+        </p>
+        
+      </div>
+      <div className="flex w-full bg-gray-200  gap-x-3">
+      <p>
+          <strong>Asistente: </strong>
+          La Deborado
+        </p>
+        </div>
+     
+
+      {/* <form className="w-full text-sm flex flex-col bg- rounded items-center justify-between gap-1 my-0.5 p-1">
         <div className="w-full font-medium flex items-center  rounded p-0.5 border justify-between mx-auto">
           <label htmlFor="FechaPrep" className="">
             FechaPrep:
@@ -133,8 +192,8 @@ export default function BodyRotulo({ idMed }) {
             />
           </label>
         </div>
-      </form>
-      <p className="text-sm font-bold mx-auto mt-1 -bottom-4 absolute left-14">
+      </form> */}
+      <p className="text-sm font-bold mx-auto mt-1 -bottom-4  left-14">
         ¡Alcemos la voz por la seguridad del paciente!
       </p>
     </div>

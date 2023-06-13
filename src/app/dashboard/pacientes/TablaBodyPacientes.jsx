@@ -16,7 +16,8 @@ export default function TablaBodyPacientes() {
         activarPaciente(paciente)
           router.push('/dashboard/pacientes/'+name)
       }
-  return (
+ if(pacientes && data)
+ return (
     <tbody className="text-center py-3">
     {pacientes?.map((paciente, i) => (
       <tr
@@ -43,4 +44,7 @@ export default function TablaBodyPacientes() {
     ))}
   </tbody>
   )
+  else{
+    null
+  }
 }

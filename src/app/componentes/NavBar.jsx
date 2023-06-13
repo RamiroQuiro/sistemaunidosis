@@ -4,7 +4,7 @@ import BotonConsultaNueva from "./BotonConsultaNueva";
 
 export default function NavBar() {
   return (
-    <header className="fixed w-full z-20 mx-auto">
+    <header className="fixed w-full z-20 mx-auto print:hidden">
       <div className="flex items-center justify-between py-5 px-10">
         <div className="text-center flex items-center gap-x-5">
           <div className="w-1/3 items-center mx-auto relative">

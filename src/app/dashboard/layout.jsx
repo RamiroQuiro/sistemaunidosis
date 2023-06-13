@@ -13,8 +13,8 @@ export const metadata = {
 export default function appLayout({ children }) {
   return (
     <html lang="es">
-      <body className="w-full ">
-        <main className="w-full relative">
+      <body className="w-full">
+        <main className="w-full  relative">
           <NavBar/>
           {/* <Sidebar /> */}
           {children}
