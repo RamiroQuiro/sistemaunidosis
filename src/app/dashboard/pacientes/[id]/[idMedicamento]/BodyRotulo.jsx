@@ -52,8 +52,12 @@ export default function BodyRotulo({ idMed,formularioRotulo }) {
 
       <ContenedorDivBodyRotulo>
         <p>
-          <spam className="font-medium">Solvente</spam>
-          Dexamet
+          <spam className="font-medium">Via:</spam>
+          {formularioRotulo?.viasIntectable}
+        </p>
+        <p>
+          <spam className="font-medium">Diluy:</spam>
+          {formularioRotulo?.diluyentes}
         </p>
         <p>
           <spam className="font-medium">Volumen: </spam>
@@ -63,13 +67,13 @@ export default function BodyRotulo({ idMed,formularioRotulo }) {
       <ContenedorDivBodyRotulo>
         <p>
           <spam className="font-medium">Operadora:</spam>
-          La Roxana
+         {formularioRotulo?.operadora}
         </p>
       </ContenedorDivBodyRotulo>
       <ContenedorDivBodyRotulo>
         <p>
           <spam className="font-medium">Asistente: </spam>
-          La Deborado
+          {formularioRotulo?.asistente}
         </p>
       </ContenedorDivBodyRotulo>
 

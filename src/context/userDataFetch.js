@@ -40,7 +40,6 @@ export const useDataFetch = create((set, get) => ({
     }));
   },
   cargarFormularioRotulo: (obj) => {
-    console.log(obj)
     set((state) => ({
       ...state,
       formularioRotulo: { ...state.formularioRotulo, ...obj },

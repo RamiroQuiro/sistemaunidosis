@@ -23,9 +23,9 @@ export default function HeadRotulo({ idMed ,formularioRotulo}) {
           </div>
           <div className="flex w-full gap-x-1 items-center justify-between">
             <p><span className="text-sm">Edad:</span>{idMed?.edad1}años</p>
-            <p><span className="text-sm">Peso:</span>{formularioRotulo?.peso}Kg</p>
+            <p><span className="text-sm">Peso:</span>{formularioRotulo?.peso}kg</p>
          
-            <p><span className="text-sm uppercase"> Sala3</span>    {/*idMed?.servicio*/}</p>
+            <p><span className="text-sm uppercase">{idMed?.servicio}</span>    {/*idMed?.servicio*/}</p>
           </div>
         </div>
       </div>

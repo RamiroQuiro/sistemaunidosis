@@ -12,23 +12,21 @@ export default function FormularioSidebar() {
 
   /* formateador de hora a string y a formato de argentina */
   const transf = (fecha) => {
-    const fech = fecha.target.value
-    const date=new Date (fech)
+    const fech = fecha.target.value;
+    const date = new Date(fech);
     const day = date?.getDate();
     const month = date?.getMonth() + 1;
     const year = date?.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-    setFormulario({ ...formulario, [fecha.target.name]:formattedDate });
+    setFormulario({ ...formulario, [fecha.target.name]: formattedDate });
   };
 
   const handleChange = (e) => {
     if (e.target.type == "date") {
-      transf(e)
+      transf(e);
+    } else {
+      setFormulario({ ...formulario, [e.target.name]: e.target.value });
     }
-else{
-  setFormulario({ ...formulario, [e.target.name]: e.target.value });
-}
-
   };
 
   // const input = document.querySelector('input[type="date"]');
@@ -131,6 +129,32 @@ else{
             {label.children}
           </InputFormulario>
         ))}
+        <label
+          htmlFor="viasIntectable"
+          className="peer w-full text-sm  py-1 pl-4 focus:bg-transparent  bg-transparent shadow-none border-0 border-b text-gray-700 border-gray-500 outline-none  focus:outline-none relative"
+        >
+          Via:
+          <select onChange={handleChange} name="viasIntectable" id="" className="ml-5">
+            <option defaultValue value="subcutaneo">
+              subcutaneo
+            </option>
+            <option value="intramuscular">intramuscular</option>
+            <option value="endovenosa">endovenosa</option>
+          </select>
+        </label>
+        <label
+          htmlFor="diluyentes"
+          className="peer w-full text-sm  py-1 mt-2 pl-4 focus:bg-transparent  bg-transparent shadow-none border-0 border-b text-gray-700 border-gray-500 outline-none  focus:outline-none relative"
+        >
+          Diluyente:
+          <select name="diluyentes" id="" onChange={handleChange} className="ml-5">
+            <option defaultValue value="A/D">
+              A/D
+            </option>
+            <option value="S/F">S/F</option>
+            <option value="S/D">S/D</option>
+          </select>
+        </label>
       </div>
       <button
         onClick={(e) => botonGuardar(e, formulario)}
