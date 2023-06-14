@@ -1,7 +1,7 @@
 import Image from "next/image";
 import logoCepsi from "../../../../../../public/logocontorno.png";
 
-export default function HeadRotulo({ idMed }) {
+export default function HeadRotulo({ idMed ,formularioRotulo}) {
   return (
     <div className="flex print:bg-gray-500 items-center border-b-2 justify-between w-full bg-gradient-toto-blue-500/80 from-rose-400/80 p- rounded-t-lg">
       {/* <div className="w-1/3 items-center mx-auto relative">
@@ -23,7 +23,7 @@ export default function HeadRotulo({ idMed }) {
           </div>
           <div className="flex w-full gap-x-1 items-center justify-between">
             <p><span className="text-sm">Edad:</span>{idMed?.edad1}años</p>
-            <p><span className="text-sm">Peso:</span>{idMed?.edad1}Kg</p>
+            <p><span className="text-sm">Peso:</span>{formularioRotulo?.peso}Kg</p>
          
             <p><span className="text-sm uppercase"> Sala3</span>    {/*idMed?.servicio*/}</p>
           </div>

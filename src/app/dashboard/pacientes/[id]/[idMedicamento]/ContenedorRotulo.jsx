@@ -11,8 +11,9 @@ export default function ContenedorRotulo() {
   const [printer, setPrinter] = useState(false);
   const params = useParams();
   const [idMed, setIdMed] = useState({});
-  const { pacienteActivo } = useDataFetch((state) => ({
+  const { pacienteActivo,formularioRotulo } = useDataFetch((state) => ({
     pacienteActivo: state.pacienteActivo,
+    formularioRotulo:state.formularioRotulo
   }));
 
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function ContenedorRotulo() {
   /*funcion para calcular cm en pixeles 
   const anchoEnPixeles = centimetrosAPixeles(7, 72);
 */
+
   return (
     <>
       {printer ? (
@@ -45,7 +47,7 @@ export default function ContenedorRotulo() {
         <SectionBackgroun>
           <Sidebar/>
           <div className="bg-white  p-1.5  rounded-lg  flex flex-col items-center justify-between ">
-            <Rotulo id="printContent" idMed={idMed} key={2} />
+            <Rotulo  formularioRotulo={formularioRotulo} id="printContent" idMed={idMed} key={2} />
           </div>
           <div className="w- print:hidden mt-8 flex items-center gap-x-10 justify-between">
             <BotonVolver />

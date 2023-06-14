@@ -1,7 +1,7 @@
 import React from "react";
 import ContenedorDivBodyRotulo from "./ContenedorDivBodyRotulo";
 
-export default function BodyRotulo({ idMed }) {
+export default function BodyRotulo({ idMed,formularioRotulo }) {
   return (
     <div className="flex  items-center text-center mx-auto font-bold justify-evenly leading-tight tracking-tight w-full flex-col relative  my-1">
       <ContenedorDivBodyRotulo>
@@ -13,7 +13,7 @@ export default function BodyRotulo({ idMed }) {
         </p>{" "}
         <p>
           <spam className="font-medium">Volumen: </spam>
-          1mls
+          {formularioRotulo?.volumenDosis}
         </p>
       </ContenedorDivBodyRotulo>
       <ContenedorDivBodyRotulo>
@@ -26,27 +26,27 @@ export default function BodyRotulo({ idMed }) {
           {idMed?.unidad}
         </p>
         <p>
-          <span className="font-medium">Subcutaneo </span>
+          <span className="font-medium">{formularioRotulo?.subcutaneo} </span>
         </p>
       </ContenedorDivBodyRotulo>
       <ContenedorDivBodyRotulo>
         <p>
           <spam className="font-medium">FechaPrep:</spam>
-          10/50/2015
+          {formularioRotulo?.fechaPrep}
         </p>
         <p>
           <spam className="font-medium"> HrPrep: </spam>
-          12:50hs
+          {formularioRotulo?.horaPrep}
         </p>
       </ContenedorDivBodyRotulo>
       <ContenedorDivBodyRotulo>
         <p>
           <spam className="font-medium">HrAdmin:</spam>
-          12:50hs
+          {formularioRotulo?.horaAdm}
         </p>
         <p>
           <spam className="font-medium">FechaAdmn: </spam>
-          12:50hs
+          {formularioRotulo?.fechaAdm}
         </p>
       </ContenedorDivBodyRotulo>
 
