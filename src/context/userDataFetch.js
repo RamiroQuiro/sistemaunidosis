@@ -7,7 +7,7 @@ export const useDataFetch = create((set, get) => ({
   },
   pacienteActivo: {},
   formularioRotulo: {
-    peso: 3,
+    peso: 0,
     fechaPrep: "",
     horaPrep: "",
     fechaAdm: "",

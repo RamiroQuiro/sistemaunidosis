@@ -1,5 +1,5 @@
 
-const url=`http://localhost:8000/user/`
+const url=`http://172.16.3.94:8080/user/`
 
 const fetchMssql=async(servicio)=>{
  const data=await fetch(url+servicio)
